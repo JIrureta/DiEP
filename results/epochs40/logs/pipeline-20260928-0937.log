@@ -1,0 +1,44 @@
+
+[1m==> DiEP [diep-80steps, 40 epochs] on allenai/OLMoE-1B-7B-0924 | 18 jobs over GPUs: 1 3 5 7[0m
+  calibration: /home/jupyter/workspace/llm_evaluation/DiEP/../GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt
+  results:     /home/jupyter/workspace/llm_evaluation/DiEP/results/epochs40
+09:38 [gpu 1] > search-seed0
+09:38 [gpu 3] > search-seed1
+09:38 [gpu 5] > search-seed2
+09:59 [gpu 1] . search-seed0 done
+09:59 [gpu 1] > diep-seed0-r0.25
+09:59 [gpu 5] . search-seed2 done
+09:59 [gpu 5] > diep-seed0-r0.5
+09:59 [gpu 3] . search-seed1 done
+09:59 [gpu 3] > diep-seed0-r0.75
+09:59 [gpu 7] > uniform-seed0-r0.25
+11:10 [gpu 3] . diep-seed0-r0.75 done
+11:10 [gpu 3] > merge-seed0-r0.25
+11:13 [gpu 5] . diep-seed0-r0.5 done
+11:13 [gpu 5] > uniform-seed0-r0.5
+11:16 [gpu 1] . diep-seed0-r0.25 done
+11:16 [gpu 1] > merge-seed0-r0.5
+11:16 [gpu 7] . uniform-seed0-r0.25 done
+11:16 [gpu 7] > uniform-seed0-r0.75
+12:26 [gpu 3] . merge-seed0-r0.25 done
+12:26 [gpu 3] > merge-seed0-r0.75
+12:29 [gpu 5] . uniform-seed0-r0.5 done
+12:29 [gpu 5] > diep-seed1-r0.25
+12:30 [gpu 7] . uniform-seed0-r0.75 done
+12:30 [gpu 7] > diep-seed1-r0.5
+12:31 [gpu 1] . merge-seed0-r0.5 done
+12:31 [gpu 1] > diep-seed1-r0.75
+13:36 [gpu 5] . diep-seed1-r0.25 done
+13:37 [gpu 5] > diep-seed2-r0.25
+13:38 [gpu 3] . merge-seed0-r0.75 done
+13:38 [gpu 3] > diep-seed2-r0.5
+13:41 [gpu 1] . diep-seed1-r0.75 done
+13:41 [gpu 1] > diep-seed2-r0.75
+13:43 [gpu 7] . diep-seed1-r0.5 done
+14:43 [gpu 5] . diep-seed2-r0.25 done
+14:52 [gpu 3] . diep-seed2-r0.5 done
+14:52 [gpu 1] . diep-seed2-r0.75 done
+
+[1m==> finished in 314 min: 18/18 jobs have results[0m
+  analysis  /home/jupyter/workspace/llm_evaluation/DiEP/results/epochs40/ANALYSIS.md
+  figures   /home/jupyter/workspace/llm_evaluation/DiEP/results/epochs40/figures/

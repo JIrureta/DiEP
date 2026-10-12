@@ -1,0 +1,56 @@
+
+[1m==> DiEP on allenai/OLMoE-1B-7B-0924 | 24 jobs over GPUs: 1 3 5 7[0m
+  calibration: /home/jupyter/workspace/llm_evaluation/DiEP/../GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt
+  results:     /home/jupyter/workspace/llm_evaluation/DiEP/results
+09:51 [gpu 1] > search-seed0
+09:52 [gpu 3] > search-seed1
+09:52 [gpu 5] > search-seed2
+09:57 [gpu 1] . search-seed0 done
+09:57 [gpu 1] > diep-seed0-r0.25
+09:57 [gpu 3] . search-seed1 done
+09:57 [gpu 3] > diep-seed0-r0.5
+09:57 [gpu 7] > diep-seed0-r0.75
+09:57 [gpu 5] . search-seed2 done
+09:58 [gpu 5] > uniform-seed0-r0.25
+11:09 [gpu 7] . diep-seed0-r0.75 done
+11:09 [gpu 7] > merge-seed0-r0.25
+11:12 [gpu 5] . uniform-seed0-r0.25 done
+11:12 [gpu 5] > uniform-seed0-r0.5
+11:13 [gpu 3] . diep-seed0-r0.5 done
+11:13 [gpu 3] > merge-seed0-r0.5
+11:13 [gpu 1] . diep-seed0-r0.25 done
+11:13 [gpu 1] > uniform-seed0-r0.75
+12:24 [gpu 7] . merge-seed0-r0.25 done
+12:24 [gpu 7] > merge-seed0-r0.75
+12:27 [gpu 1] . uniform-seed0-r0.75 done
+12:27 [gpu 1] > diep-seed1-r0.25
+12:27 [gpu 5] . uniform-seed0-r0.5 done
+12:28 [gpu 5] > diep-seed1-r0.5
+12:28 [gpu 3] . merge-seed0-r0.5 done
+12:28 [gpu 3] > diep-seed1-r0.75
+13:34 [gpu 7] . merge-seed0-r0.75 done
+13:34 [gpu 7] > diep-seed2-r0.25
+13:39 [gpu 3] . diep-seed1-r0.75 done
+13:39 [gpu 3] > diep-seed2-r0.5
+13:42 [gpu 5] . diep-seed1-r0.5 done
+13:42 [gpu 5] > diep-seed2-r0.75
+13:43 [gpu 1] . diep-seed1-r0.25 done
+13:43 [gpu 1] > skip-seed0-r0.25
+14:24 [gpu 1] . skip-seed0-r0.25 done
+14:24 [gpu 1] > skip-seed0-r0.5
+14:45 [gpu 7] . diep-seed2-r0.25 done
+14:45 [gpu 7] > skip-seed0-r0.75
+14:53 [gpu 5] . diep-seed2-r0.75 done
+14:53 [gpu 3] . diep-seed2-r0.5 done
+14:53 [gpu 5] > bench-seed0-r0.25
+14:53 [gpu 3] > bench-seed0-r0.5
+14:59 [gpu 1] . skip-seed0-r0.5 done
+14:59 [gpu 1] > bench-seed0-r0.75
+15:02 [gpu 5] . bench-seed0-r0.25 done
+15:02 [gpu 3] . bench-seed0-r0.5 done
+15:08 [gpu 1] . bench-seed0-r0.75 done
+15:12 [gpu 7] . skip-seed0-r0.75 done
+
+[1m==> finished in 321 min: 24/24 jobs have results[0m
+  analysis  /home/jupyter/workspace/llm_evaluation/DiEP/results/ANALYSIS.md
+  figures   /home/jupyter/workspace/llm_evaluation/DiEP/results/figures/

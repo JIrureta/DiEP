@@ -1,0 +1,90 @@
+[1/3] calibration: /home/jupyter/workspace/llm_evaluation/DiEP/../GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt
+      c4-32x1024-seed0.pt: 32 x 1024 tokens (32768 real), tokenizer allenai/OLMoE-1B-7B-0924
+[2/3] loading allenai/OLMoE-1B-7B-0924 ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   2%|▏         | 4/179 [00:00<00:04, 38.37it/s]Loading weights:   4%|▍         | 8/179 [00:00<00:23,  7.37it/s]Loading weights:   9%|▉         | 16/179 [00:01<00:20,  7.87it/s]Loading weights:  15%|█▍        | 26/179 [00:02<00:13, 11.05it/s]Loading weights:  16%|█▌        | 28/179 [00:02<00:15,  9.91it/s]Loading weights:  21%|██        | 37/179 [00:03<00:10, 13.64it/s]Loading weights:  22%|██▏       | 39/179 [00:03<00:11, 11.90it/s]Loading weights:  27%|██▋       | 49/179 [00:03<00:07, 16.92it/s]Loading weights:  34%|███▎      | 60/179 [00:04<00:05, 20.43it/s]Loading weights:  40%|███▉      | 71/179 [00:04<00:05, 21.01it/s]Loading weights:  46%|████▌     | 82/179 [00:05<00:04, 21.15it/s]Loading weights:  52%|█████▏    | 93/179 [00:05<00:04, 21.47it/s]Loading weights:  58%|█████▊    | 104/179 [00:06<00:03, 23.01it/s]Loading weights:  64%|██████▍   | 115/179 [00:06<00:02, 24.22it/s]Loading weights:  70%|██████▉   | 125/179 [00:06<00:01, 29.91it/s]Loading weights:  72%|███████▏  | 129/179 [00:07<00:02, 22.56it/s]Loading weights:  77%|███████▋  | 137/179 [00:07<00:02, 20.22it/s]Loading weights:  83%|████████▎ | 148/179 [00:08<00:01, 20.59it/s]Loading weights:  88%|████████▊ | 158/179 [00:08<00:00, 26.80it/s]Loading weights:  91%|█████████ | 162/179 [00:08<00:00, 21.77it/s]Loading weights:  95%|█████████▍| 170/179 [00:09<00:00, 18.00it/s]Loading weights: 100%|██████████| 179/179 [00:09<00:00, 19.30it/s]
+[3/3] search (seed 0) ...
+      caching the original model's hidden for 32 sequences ...
+      40 epochs x 2 steps = 80 steps (60 alpha, 20 beta), batch 16 in micro-batches of 1, search_forward=routed
+      step   0 [alpha] ce 2.4319 phi    0.0001 lr 5.00e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   1 [alpha] ce 2.5730 phi  100.7781 lr 5.00e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   2 [alpha] ce 2.4376 phi  101.7100 lr 4.99e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   3 [beta ] ce 2.5676 phi  101.5203 lr 5.00e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   4 [alpha] ce 2.6178 phi  101.6113 lr 4.97e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   5 [alpha] ce 2.3885 phi  108.2996 lr 4.95e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   6 [alpha] ce 2.5844 phi  104.7688 lr 4.91e-03 | beta 0.9950..1.0050 | H(alpha) 4.1588...4.1589
+      step   7 [beta ] ce 2.4211 phi  105.0551 lr 4.97e-03 | beta 0.9929..1.0078 | H(alpha) 4.1588...4.1589
+      step   8 [alpha] ce 2.5583 phi  102.5693 lr 4.88e-03 | beta 0.9929..1.0078 | H(alpha) 4.1588...4.1589
+      step   9 [alpha] ce 2.4480 phi  110.0580 lr 4.83e-03 | beta 0.9929..1.0078 | H(alpha) 4.1588...4.1589
+      step  10 [alpha] ce 2.5013 phi  105.2835 lr 4.78e-03 | beta 0.9929..1.0078 | H(alpha) 4.1588...4.1589
+      step  11 [beta ] ce 2.5045 phi  107.5944 lr 4.88e-03 | beta 0.9952..1.0078 | H(alpha) 4.1588...4.1589
+      step  12 [alpha] ce 2.5069 phi  105.6449 lr 4.73e-03 | beta 0.9952..1.0078 | H(alpha) 4.1588...4.1589
+      step  13 [alpha] ce 2.4982 phi  110.1735 lr 4.67e-03 | beta 0.9952..1.0078 | H(alpha) 4.1588...4.1589
+      step  14 [alpha] ce 2.4643 phi  115.3989 lr 4.60e-03 | beta 0.9952..1.0078 | H(alpha) 4.1588...4.1589
+      step  15 [beta ] ce 2.5409 phi  100.9495 lr 4.73e-03 | beta 0.9953..1.0066 | H(alpha) 4.1588...4.1589
+      step  16 [alpha] ce 2.5142 phi  114.0033 lr 4.52e-03 | beta 0.9953..1.0066 | H(alpha) 4.1588...4.1589
+      step  17 [alpha] ce 2.4905 phi  101.7361 lr 4.44e-03 | beta 0.9953..1.0066 | H(alpha) 4.1588...4.1589
+      step  18 [alpha] ce 2.4124 phi  109.2896 lr 4.36e-03 | beta 0.9953..1.0066 | H(alpha) 4.1588...4.1589
+      step  19 [beta ] ce 2.5930 phi  105.5420 lr 4.52e-03 | beta 0.9938..1.0049 | H(alpha) 4.1588...4.1589
+      step  20 [alpha] ce 2.4319 phi  115.9048 lr 4.27e-03 | beta 0.9938..1.0049 | H(alpha) 4.1588...4.1589
+      step  21 [alpha] ce 2.5726 phi   99.1305 lr 4.17e-03 | beta 0.9938..1.0049 | H(alpha) 4.1588...4.1589
+      step  22 [alpha] ce 2.5066 phi  107.7193 lr 4.07e-03 | beta 0.9938..1.0049 | H(alpha) 4.1588...4.1589
+      step  23 [beta ] ce 2.4997 phi  103.8225 lr 4.27e-03 | beta 0.9940..1.0032 | H(alpha) 4.1588...4.1589
+      step  24 [alpha] ce 2.4777 phi  109.0511 lr 3.97e-03 | beta 0.9940..1.0032 | H(alpha) 4.1588...4.1589
+      step  25 [alpha] ce 2.5278 phi  103.3313 lr 3.86e-03 | beta 0.9940..1.0032 | H(alpha) 4.1588...4.1589
+      step  26 [alpha] ce 2.5160 phi   98.8356 lr 3.75e-03 | beta 0.9940..1.0032 | H(alpha) 4.1588...4.1589
+      step  27 [beta ] ce 2.4886 phi  111.5214 lr 3.97e-03 | beta 0.9940..1.0018 | H(alpha) 4.1588...4.1589
+      step  28 [alpha] ce 2.5864 phi  104.1561 lr 3.63e-03 | beta 0.9940..1.0018 | H(alpha) 4.1588...4.1589
+      step  29 [alpha] ce 2.4182 phi  105.0868 lr 3.52e-03 | beta 0.9940..1.0018 | H(alpha) 4.1588...4.1589
+      step  30 [alpha] ce 2.4258 phi  104.6331 lr 3.40e-03 | beta 0.9940..1.0018 | H(alpha) 4.1588...4.1589
+      step  31 [beta ] ce 2.5796 phi  103.4257 lr 3.63e-03 | beta 0.9946..1.0008 | H(alpha) 4.1588...4.1589
+      step  32 [alpha] ce 2.4575 phi  109.0220 lr 3.27e-03 | beta 0.9946..1.0008 | H(alpha) 4.1588...4.1589
+      step  33 [alpha] ce 2.5476 phi  100.2977 lr 3.15e-03 | beta 0.9946..1.0008 | H(alpha) 4.1588...4.1589
+      step  34 [alpha] ce 2.5229 phi  105.5112 lr 3.02e-03 | beta 0.9946..1.0008 | H(alpha) 4.1588...4.1589
+      step  35 [beta ] ce 2.4823 phi  103.9196 lr 3.27e-03 | beta 0.9956..1.0000 | H(alpha) 4.1588...4.1589
+      step  36 [alpha] ce 2.5572 phi   95.1179 lr 2.89e-03 | beta 0.9956..1.0000 | H(alpha) 4.1588...4.1589
+      step  37 [alpha] ce 2.4476 phi  111.4806 lr 2.76e-03 | beta 0.9956..1.0000 | H(alpha) 4.1589...4.1589
+      step  38 [alpha] ce 2.3971 phi  101.8735 lr 2.63e-03 | beta 0.9956..1.0000 | H(alpha) 4.1589...4.1589
+      step  39 [beta ] ce 2.6076 phi  106.4828 lr 2.89e-03 | beta 0.9964..1.0008 | H(alpha) 4.1589...4.1589
+      step  40 [alpha] ce 2.4682 phi   98.9655 lr 2.50e-03 | beta 0.9964..1.0008 | H(alpha) 4.1589...4.1589
+      step  41 [alpha] ce 2.5366 phi  106.4300 lr 2.37e-03 | beta 0.9964..1.0008 | H(alpha) 4.1589...4.1589
+      step  42 [alpha] ce 2.4505 phi  106.8413 lr 2.24e-03 | beta 0.9964..1.0008 | H(alpha) 4.1589...4.1589
+      step  43 [beta ] ce 2.5546 phi   96.5599 lr 2.50e-03 | beta 0.9968..1.0014 | H(alpha) 4.1589...4.1589
+      step  44 [alpha] ce 2.5921 phi   96.0895 lr 2.11e-03 | beta 0.9968..1.0014 | H(alpha) 4.1589...4.1589
+      step  45 [alpha] ce 2.4138 phi  110.3261 lr 1.98e-03 | beta 0.9968..1.0014 | H(alpha) 4.1589...4.1589
+      step  46 [alpha] ce 2.4048 phi  110.5392 lr 1.85e-03 | beta 0.9968..1.0014 | H(alpha) 4.1589...4.1589
+      step  47 [beta ] ce 2.6003 phi   93.1053 lr 2.11e-03 | beta 0.9971..1.0017 | H(alpha) 4.1589...4.1589
+      step  48 [alpha] ce 2.4913 phi  105.9723 lr 1.73e-03 | beta 0.9971..1.0017 | H(alpha) 4.1589...4.1589
+      step  49 [alpha] ce 2.5130 phi  100.5027 lr 1.60e-03 | beta 0.9971..1.0017 | H(alpha) 4.1589...4.1589
+      step  50 [alpha] ce 2.5876 phi  103.6587 lr 1.48e-03 | beta 0.9971..1.0017 | H(alpha) 4.1589...4.1589
+      step  51 [beta ] ce 2.4171 phi  101.7132 lr 1.73e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  52 [alpha] ce 2.5727 phi   99.5944 lr 1.37e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  53 [alpha] ce 2.4321 phi  105.9937 lr 1.25e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  54 [alpha] ce 2.5219 phi  103.5916 lr 1.14e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  55 [beta ] ce 2.4837 phi  102.4521 lr 1.37e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  56 [alpha] ce 2.4909 phi  110.4940 lr 1.03e-03 | beta 0.9971..1.0018 | H(alpha) 4.1589...4.1589
+      step  57 [alpha] ce 2.5139 phi   95.1696 lr 9.27e-04 | beta 0.9971..1.0018 | H(alpha) 4.1588...4.1589
+      step  58 [alpha] ce 2.5994 phi   95.0971 lr 8.27e-04 | beta 0.9971..1.0018 | H(alpha) 4.1588...4.1589
+      step  59 [beta ] ce 2.4055 phi  108.9364 lr 1.03e-03 | beta 0.9971..1.0017 | H(alpha) 4.1588...4.1589
+      step  60 [alpha] ce 2.5240 phi  106.1481 lr 7.32e-04 | beta 0.9971..1.0017 | H(alpha) 4.1588...4.1589
+      step  61 [alpha] ce 2.4808 phi   97.9368 lr 6.42e-04 | beta 0.9971..1.0017 | H(alpha) 4.1588...4.1589
+      step  62 [alpha] ce 2.6260 phi   99.8350 lr 5.57e-04 | beta 0.9971..1.0017 | H(alpha) 4.1588...4.1589
+      step  63 [beta ] ce 2.3794 phi  105.1542 lr 7.32e-04 | beta 0.9972..1.0016 | H(alpha) 4.1588...4.1589
+      step  64 [alpha] ce 2.4253 phi  109.4049 lr 4.77e-04 | beta 0.9972..1.0016 | H(alpha) 4.1588...4.1589
+      step  65 [alpha] ce 2.5800 phi   95.2049 lr 4.03e-04 | beta 0.9972..1.0016 | H(alpha) 4.1588...4.1589
+      step  66 [alpha] ce 2.3815 phi  104.9142 lr 3.35e-04 | beta 0.9972..1.0016 | H(alpha) 4.1588...4.1589
+      step  67 [beta ] ce 2.6236 phi  100.4084 lr 4.77e-04 | beta 0.9973..1.0015 | H(alpha) 4.1588...4.1589
+      step  68 [alpha] ce 2.4050 phi  105.7991 lr 2.72e-04 | beta 0.9973..1.0015 | H(alpha) 4.1588...4.1589
+      step  69 [alpha] ce 2.6001 phi   99.6057 lr 2.16e-04 | beta 0.9973..1.0015 | H(alpha) 4.1588...4.1589
+      step  70 [alpha] ce 2.5107 phi  108.8004 lr 1.66e-04 | beta 0.9973..1.0015 | H(alpha) 4.1588...4.1589
+      step  71 [beta ] ce 2.4951 phi   94.3115 lr 2.72e-04 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  72 [alpha] ce 2.5556 phi   97.3732 lr 1.22e-04 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  73 [alpha] ce 2.4505 phi  107.3925 lr 8.52e-05 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  74 [alpha] ce 2.4579 phi   99.6980 lr 5.46e-05 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  75 [beta ] ce 2.5475 phi  104.0441 lr 1.22e-04 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  76 [alpha] ce 2.5217 phi  107.8465 lr 3.08e-05 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  77 [alpha] ce 2.4838 phi   96.4292 lr 1.37e-05 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  78 [alpha] ce 2.4721 phi  104.8903 lr 3.43e-06 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+      step  79 [beta ] ce 2.5324 phi   98.6744 lr 3.08e-05 | beta 0.9974..1.0014 | H(alpha) 4.1588...4.1589
+
+wrote /home/jupyter/workspace/llm_evaluation/DiEP/results/epochs40/runs/seed0/scores.pt  (beta 0.9974..1.0014)

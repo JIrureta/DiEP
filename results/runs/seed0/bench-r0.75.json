@@ -1,0 +1,38 @@
+{
+ "pruned_native": {
+  "tokens_per_s": 68.4313672723677,
+  "seconds": 74.81949000991881,
+  "tokens": 5120,
+  "prompts": 20,
+  "new_tokens": 256,
+  "speedup_vs_full": 0.9089750793250989
+ },
+ "pruned_diep_forward": {
+  "tokens_per_s": 31.12583404714628,
+  "seconds": 164.49358408339322,
+  "tokens": 5120,
+  "prompts": 20,
+  "new_tokens": 256,
+  "speedup_vs_full": 0.41344501213099527
+ },
+ "pruned_skip": {
+  "tokens_per_s": 40.90738821039757,
+  "seconds": 125.16076493728906,
+  "tokens": 5120,
+  "prompts": 20,
+  "new_tokens": 256,
+  "skip_fraction": 0.49488271937790895,
+  "speedup_vs_full": 0.5433735715893464,
+  "speedup_vs_same_forward": 1.3142583793396565
+ },
+ "param_bytes_pruned": 4171501568,
+ "full_native": {
+  "tokens_per_s": 75.28409615275373,
+  "seconds": 68.0090518668294,
+  "tokens": 5120,
+  "prompts": 20,
+  "new_tokens": 256
+ },
+ "param_bytes_full": 13838323712,
+ "memory_ratio": 0.30144558364266716
+}

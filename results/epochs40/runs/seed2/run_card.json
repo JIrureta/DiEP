@@ -1,0 +1,51 @@
+{
+ "written_at": "2026-09-28T09:59:12+00:00",
+ "command": "/home/jupyter/workspace/llm_evaluation/DiEP/diep/__main__.py search --model allenai/OLMoE-1B-7B-0924 --calibration-file /home/jupyter/workspace/llm_evaluation/DiEP/../GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt --out /home/jupyter/workspace/llm_evaluation/DiEP/results/epochs40/runs/seed2 --seed 2 --epochs 40",
+ "git_commit": "ec531f9c860639fba09c2b061932a7d2bfc970fe (DiEP uncommitted)",
+ "versions": {
+  "python": "3.10.12",
+  "torch": "2.6.0+cu124",
+  "transformers": "5.12.1",
+  "lm_eval": "0.4.12",
+  "numpy": "2.2.6",
+  "safetensors": "0.8.0",
+  "gpu": "NVIDIA L40S",
+  "cuda": "12.4"
+ },
+ "stage": "search",
+ "config": {
+  "search_forward": "routed",
+  "epochs": 40,
+  "batch_size": 16,
+  "micro_batch": 1,
+  "lr_alpha": 0.005,
+  "lr_beta": 0.005,
+  "update_ratio": "3:1",
+  "lam": 0.01,
+  "recon_target": "hidden",
+  "score_mode": "softmax",
+  "alpha_init": 0.0,
+  "beta_init": 1.0,
+  "beta_min": 0.001,
+  "seed": 2,
+  "ablation": "none",
+  "fixed_beta": null
+ },
+ "steps": {
+  "total": 80,
+  "alpha": 60,
+  "beta": 20,
+  "steps_per_epoch": 2
+ },
+ "model": "allenai/OLMoE-1B-7B-0924",
+ "calibration": "/home/jupyter/workspace/llm_evaluation/GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt",
+ "calibration_metadata": {
+  "recipe": "c4",
+  "path": "allenai/c4",
+  "split": "train",
+  "mode": "window",
+  "seed": 0,
+  "seq_len": 1024,
+  "tokenizer": "allenai/OLMoE-1B-7B-0924"
+ }
+}

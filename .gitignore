@@ -1,0 +1,26 @@
+# DiEP -- what is NOT in this repository, and why.
+# Kept: code, tests, specs, every run card, search log, learned expert scores
+# (scores.pt), benchmark and lm-eval records, logs and figures. Only the pruned
+# model weights are excluded (about 222 GB); each pruned model is re-created
+# from its run's scores.pt and the public OLMoE weights.
+
+# --- Python and tooling -----------------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+.env
+
+# --- Model weights (never in git) -------------------------------------------------
+*.safetensors
+*.bin
+*.ckpt
+model.safetensors.index.json
+# copies of the OLMoE tokenizer written next to every pruned checkpoint
+tokenizer.json
+
+# --- Queue runtime state ------------------------------------------------------------
+*.claim/
+.report.lock

@@ -1,0 +1,30 @@
+[1/3] calibration: /home/jupyter/workspace/llm_evaluation/DiEP/../GA/MoE_compression_GA/scripts/results/calibration/c4-32x1024-seed0.pt
+      c4-32x1024-seed0.pt: 32 x 1024 tokens (32768 real), tokenizer allenai/OLMoE-1B-7B-0924
+[2/3] loading allenai/OLMoE-1B-7B-0924 ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights:   2%|▏         | 4/179 [00:00<00:05, 33.39it/s]Loading weights:   4%|▍         | 8/179 [00:00<00:09, 18.10it/s]Loading weights:   8%|▊         | 15/179 [00:01<00:17,  9.25it/s]Loading weights:   9%|▉         | 17/179 [00:02<00:25,  6.29it/s]Loading weights:  15%|█▌        | 27/179 [00:02<00:12, 11.85it/s]Loading weights:  21%|██        | 38/179 [00:03<00:09, 14.33it/s]Loading weights:  27%|██▋       | 49/179 [00:03<00:06, 18.83it/s]Loading weights:  34%|███▎      | 60/179 [00:03<00:05, 21.50it/s]Loading weights:  40%|███▉      | 71/179 [00:04<00:04, 23.34it/s]Loading weights:  46%|████▌     | 82/179 [00:04<00:03, 26.06it/s]Loading weights:  52%|█████▏    | 93/179 [00:04<00:03, 27.54it/s]Loading weights:  58%|█████▊    | 104/179 [00:05<00:02, 28.91it/s]Loading weights:  64%|██████▍   | 115/179 [00:05<00:02, 28.84it/s]Loading weights:  70%|███████   | 126/179 [00:05<00:01, 28.40it/s]Loading weights:  77%|███████▋  | 137/179 [00:06<00:01, 30.00it/s]Loading weights:  83%|████████▎ | 148/179 [00:06<00:01, 29.66it/s]Loading weights:  89%|████████▉ | 159/179 [00:06<00:00, 30.96it/s]Loading weights:  95%|█████████▍| 170/179 [00:07<00:00, 30.09it/s]Loading weights: 100%|██████████| 179/179 [00:07<00:00, 24.32it/s]
+[3/3] search (seed 2) ...
+      caching the original model's hidden for 32 sequences ...
+      10 epochs x 2 steps = 20 steps (15 alpha, 5 beta), batch 16 in micro-batches of 1, search_forward=routed
+      step   0 [alpha] ce 2.4538 phi    0.0001 lr 5.00e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   1 [alpha] ce 2.5507 phi  100.1012 lr 4.95e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   2 [alpha] ce 2.5062 phi  109.1006 lr 4.78e-03 | beta 1.0000..1.0000 | H(alpha) 4.1589...4.1589
+      step   3 [beta ] ce 2.4985 phi   96.3158 lr 5.00e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   4 [alpha] ce 2.4631 phi  102.9373 lr 4.52e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   5 [alpha] ce 2.5421 phi  107.4594 lr 4.17e-03 | beta 0.9950..1.0050 | H(alpha) 4.1589...4.1589
+      step   6 [alpha] ce 2.4195 phi  114.0273 lr 3.75e-03 | beta 0.9950..1.0050 | H(alpha) 4.1588...4.1589
+      step   7 [beta ] ce 2.5855 phi   99.8026 lr 4.52e-03 | beta 0.9905..1.0043 | H(alpha) 4.1588...4.1589
+      step   8 [alpha] ce 2.4414 phi  104.1578 lr 3.27e-03 | beta 0.9905..1.0043 | H(alpha) 4.1588...4.1589
+      step   9 [alpha] ce 2.5641 phi  106.4390 lr 2.76e-03 | beta 0.9905..1.0043 | H(alpha) 4.1588...4.1589
+      step  10 [alpha] ce 2.4422 phi  109.9877 lr 2.24e-03 | beta 0.9905..1.0043 | H(alpha) 4.1588...4.1589
+      step  11 [beta ] ce 2.5629 phi  102.0936 lr 3.27e-03 | beta 0.9913..1.0035 | H(alpha) 4.1588...4.1589
+      step  12 [alpha] ce 2.5072 phi   98.2534 lr 1.73e-03 | beta 0.9913..1.0035 | H(alpha) 4.1588...4.1589
+      step  13 [alpha] ce 2.4982 phi  113.4707 lr 1.25e-03 | beta 0.9913..1.0035 | H(alpha) 4.1588...4.1589
+      step  14 [alpha] ce 2.5005 phi  101.0854 lr 8.27e-04 | beta 0.9913..1.0035 | H(alpha) 4.1588...4.1589
+      step  15 [beta ] ce 2.5044 phi  108.3865 lr 1.73e-03 | beta 0.9922..1.0030 | H(alpha) 4.1588...4.1589
+      step  16 [alpha] ce 2.4539 phi   98.5941 lr 4.77e-04 | beta 0.9922..1.0030 | H(alpha) 4.1588...4.1589
+      step  17 [alpha] ce 2.5507 phi  112.5459 lr 2.16e-04 | beta 0.9922..1.0030 | H(alpha) 4.1588...4.1589
+      step  18 [alpha] ce 2.4596 phi  109.4399 lr 5.46e-05 | beta 0.9922..1.0030 | H(alpha) 4.1588...4.1589
+      step  19 [beta ] ce 2.5452 phi  100.0479 lr 4.77e-04 | beta 0.9925..1.0029 | H(alpha) 4.1588...4.1589
+
+wrote /home/jupyter/workspace/llm_evaluation/DiEP/results/runs/seed2/scores.pt  (beta 0.9925..1.0029)

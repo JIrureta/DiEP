@@ -1,0 +1,1 @@
+{"epochs": 40, "method": "diep-80steps", "calibration": "c4-32x1024-seed0.pt"}
