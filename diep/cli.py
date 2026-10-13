@@ -31,7 +31,9 @@ def load_base_model(name, device, dtype=torch.bfloat16):
     from transformers import AutoModelForCausalLM
 
     key = "dtype" if int(transformers.__version__.split(".")[0]) >= 5 else "torch_dtype"
-    model = AutoModelForCausalLM.from_pretrained(name, **{key: dtype}).to(device).eval()
+    # trust_remote_code: MiniCPM-MoE loads through the local port (DPMA/models/minicpm_moe);
+    # native models (OLMoE) are unaffected.
+    model = AutoModelForCausalLM.from_pretrained(name, trust_remote_code=True, **{key: dtype}).to(device).eval()
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     return model

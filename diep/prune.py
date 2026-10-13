@@ -113,12 +113,27 @@ def save_pruned(model, adapter, keep, out_dir, *, tokenizer=None, meta: dict | N
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    state = {name: tensor.detach().contiguous().cpu() for name, tensor in model.state_dict().items()}
+    # Tied tensors (MiniCPM's lm_head is its embedding) share storage, which
+    # safetensors refuses: store each storage once and re-tie on load.
+    state, seen, tied = {}, {}, {}
+    for name, tensor in model.state_dict().items():
+        ptr = tensor.data_ptr()
+        if ptr in seen:
+            tied[name] = seen[ptr]
+            continue
+        seen[ptr] = name
+        state[name] = tensor.detach().contiguous().cpu()
     save_file(state, str(out_dir / "model.safetensors"), metadata={"format": "pt"})
     config = model.config.to_dict()
     config["num_experts_per_layer"] = [len(k) for k in keep]
-    config["diep"] = {"keep": keep, **(meta or {})}
+    config["diep"] = {"keep": keep, **(meta or {}), **({"tied": tied} if tied else {})}
     (out_dir / "config.json").write_text(json.dumps(config, indent=1))
+    # A model loaded through remote code (``auto_map``) needs its code next to the config.
+    source = Path(str(getattr(model.config, "_name_or_path", "") or ""))
+    if config.get("auto_map") and source.is_dir():
+        import shutil
+        for code in source.glob("*.py"):
+            shutil.copy(code, out_dir / code.name)
     if tokenizer is not None:
         tokenizer.save_pretrained(out_dir)
     return out_dir
@@ -140,18 +155,23 @@ def load_pruned(path, *, device="cuda", dtype=torch.bfloat16):
     path = Path(path)
     raw = json.loads((path / "config.json").read_text())
     keep = raw["diep"]["keep"]
-    config = AutoConfig.from_pretrained(path)
+    config = AutoConfig.from_pretrained(path, trust_remote_code=True)
     import transformers
     key = "dtype" if int(transformers.__version__.split(".")[0]) >= 5 else "torch_dtype"
     with torch.device("meta"):
-        model = AutoModelForCausalLM.from_config(config, **{key: dtype})
+        model = AutoModelForCausalLM.from_config(config, trust_remote_code=True, **{key: dtype})
     adapter = get_adapter(model)
     for block, indices in zip(adapter.moe_blocks(model), keep):
         adapter.prune(block, list(range(len(indices))))      # shapes only; values follow
     state = load_file(str(path / "model.safetensors"), device=str(device))
     missing, unexpected = model.load_state_dict(state, strict=False, assign=True)
-    if unexpected or [m for m in missing if "rotary" not in m]:
+    tied = raw["diep"].get("tied", {})
+    if unexpected or [m for m in missing if "rotary" not in m and m not in tied]:
         raise RuntimeError(f"pruned checkpoint mismatch: missing {missing}, unexpected {unexpected}")
+    for name, source in tied.items():                       # re-tie what save_pruned stored once
+        owner, _, attr = name.rpartition(".")
+        src_owner, _, src_attr = source.rpartition(".")
+        setattr(model.get_submodule(owner), attr, getattr(model.get_submodule(src_owner), src_attr))
     _rebuild_buffers(model, device)
     model.eval()
     for parameter in model.parameters():
@@ -170,6 +190,9 @@ def _rebuild_buffers(model, device):
     """
     for name, module in list(model.named_modules()):
         if any(buffer.is_meta for buffer in module.buffers(recurse=False)):
+            if hasattr(module, "_port_rebuild"):    # the MiniCPM port's rotary: same CPU recipe
+                module._port_rebuild(device)
+                continue
             parent_name, _, child = name.rpartition(".")
             parent = model.get_submodule(parent_name) if parent_name else model
             rebuilt = type(module)(config=model.config, device="cpu").to(device)

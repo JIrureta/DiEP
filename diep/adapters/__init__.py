@@ -11,13 +11,14 @@ from __future__ import annotations
 from torch import nn
 
 from .base import MoEAdapter
+from .minicpm import MiniCPMAdapter
 from .olmoe import OlmoeAdapter
 
-__all__ = ["MoEAdapter", "OlmoeAdapter", "get_adapter", "ADAPTERS"]
+__all__ = ["MoEAdapter", "OlmoeAdapter", "MiniCPMAdapter", "get_adapter", "ADAPTERS"]
 
 #: One entry per supported architecture. The paper's Mixtral, DeepSeek-MoE and
-#: Qwen2-MoE need an adapter each; this study compresses OLMoE.
-ADAPTERS: list[MoEAdapter] = [OlmoeAdapter()]
+#: Qwen2-MoE need an adapter each; the studies compress OLMoE and MiniCPM-MoE.
+ADAPTERS: list[MoEAdapter] = [OlmoeAdapter(), MiniCPMAdapter()]
 
 
 def get_adapter(model: nn.Module) -> MoEAdapter:
